@@ -1,5 +1,3 @@
-
-
 set_from_resource	  $color15_i3wmthemer	    color15
 set_from_resource	  $color14_i3wmthemer	    color14
 set_from_resource	  $color13_i3wmthemer	    color13
@@ -51,7 +49,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -115,29 +113,42 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+
+set $ws1 "1: Firefox"
+set $ws2 "2: Editor"
+set $ws3 "3: Term"
+set $ws4 "4: Others"
+set $ws5 "5: Others"
+set $ws6 "6: Others"
+set $ws7 "7: Steam"
+set $ws8 "8: Dota2"
+set $ws9 "9: Chrome"
+set $ws0 "10: Social"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1 
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -195,7 +206,7 @@ bindsym $mod+r mode "resize"
 exec /usr/bin/compton --config /home/jayadeep/.config/compton/compton.conf
 
 # i3-gaps
-gaps inner 4
+gaps inner 0
 gaps outer 0
 
 #for_window [class="^.*"] border pixel 1
@@ -204,5 +215,7 @@ exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 
-assign [class="^Steam$"] → 7
-assign [class="^dota2"] → 8
+assign [class="^Steam$"] → $ws7
+assign [class="^dota2"] → $ws8
+
+for_window [class="^.*"] border pixel 1
