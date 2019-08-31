@@ -1,59 +1,105 @@
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+Plug 'whatyouhide/vim-gotham'
+Plug 'jiangmiao/auto-pairs'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'joshdick/onedark.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'kaicataldo/material.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'godlygeek/tabular'
-Plug 'airblade/vim-gitgutter'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-fugitive'
-Plug 'wellle/targets.vim'
-Plug 'andymass/vim-matchup'
-Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'Yggdroot/indentLine'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ap/vim-buftabline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+
+" general settings
+set nobackup
+set nowritebackup
+set noswapfile
+set number
+set mouse=a
+set shiftwidth=4
+set expandtab
+set termguicolors
+set cursorline
+set hidden
+set relativenumber
+syntax enable
+filetype plugin on
+" set updatetime to 100 ms
+set updatetime=100
+set guicursor=n-v-c-sm:ver25-blinkon0,i-ci-ve:ver25,r-cr-o:hor20
+
+" onedark colorscheme
+" let g:onedark_terminal_italics=1
+" let g:onedark_termcolors=256
+" let g:onedark_hide_endofbuffer=1
+" colorscheme onedark
+
+" let g:material_theme_style = 'ocean'
+" let g:material_terminal_italics = 1
+colorscheme challenger_deep
+
+
 " mappings
-let mapleader = ","
+let mapleader=','
+nnoremap <Leader>nn : NERDTreeToggle<cr>
+nnoremap <C-L> :bnext<CR>
+inoremap <C-L> <esc>:bnext<CR>
+nnoremap <C-H> :bprev<CR>
+inoremap <C-H> <esc>:bprev<CR>
+nnoremap <C-D> :bp\|bd #<CR>
+inoremap <C-D> <esc>:bp\|bd #<CR>
+nnoremap <C-S> :w<CR>
+vnoremap <C-S> <esc>:w<CR>
+inoremap <C-S> <esc>:w<CR>
+nnoremap <C-Q> :q<CR>
+inoremap <C-Q> <esc>:q<CR>
+vnoremap < <gv
+vnoremap > >gv
+nnoremap <C-A> ggVGG
+vnoremap <C-A> ggVGG
 
-" augroups
-augroup nerdtree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-augroup END
+" vim-airline
+let g:airline_theme='challenger_deep'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
-
-" lightline
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 
 " nerdtree
-let DTreeMinimalUI                = 1
-let g:NERDTreeWinPos              = 'left'
-let g:NERDTreeWinSize             = 27
-let g:NERDTreeStatusline          = "  "
-let g:NERDTreeDirArrowExpandable  = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+let NERDTreeMinimalUI = 1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.git$']
+let NERDTreeShowHidden=1
+" let NERDTreeQuitOnOpen=1
+map  <Leader>n  :NERDTreeFind<CR>
+map ] :NERDTreeFind<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = ' '
+let g:NERDTreeDirArrowCollapsible = ' '
 
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
+" Ctrl + C to xclip
+
+vnoremap <C-c> "+y
+
+" indentLine
+let g:indentLine_char = '┊'
+
+" nerdcommenter
+let g:NERDSpaceDelims = 1
+nnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>
+inoremap <C-_> <esc>:call NERDComment('Toggle', 'Toggle')<CR>
+vnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>gv
 
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
@@ -63,51 +109,78 @@ let g:gitgutter_sign_removed                   = '-'
 let g:gitgutter_sign_removed_first_line        = '×'
 let g:gitgutter_sign_modified_removed          = '×'
 
-" ale
-let g:ale_set_signs             = 1
-let g:ale_use_deprecated_neovim = 1
-let g:ale_sign_error            = '> '
-let g:ale_sign_warning          = '! '
+" FZF
+nnoremap <C-p> :FZF<cr>
 
-hi ALEErrorSign ctermfg=01 ctermbg=00
-hi ALEWarningSign ctermfg=06 ctermbg=00
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" vim-devicons
+let g:DevIconsEnableFoldersOpenClose = 1
 
-" indentLine
-let g:indentLine_setColors = 0
-let g:indentLine_char      = '┊'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = 'ﰆ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
 
-"General
-syntax on
-color dracula 
-hi Normal guibg=NONE ctermbg=NONE
-set number
-set nobackup
-set nowritebackup
-set noswapfile " get rid of swapfiles everywhere
-set dir=/tmp
-set mouse=a
-set shiftwidth=4     " indent = 4 spaces
-set expandtab
-set tabstop=4        " tab = 4 spaces
-set softtabstop=4    " backspace through spaces
-set nowrap
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ'
 
-" wildignore
-set wildignore+=.git,.hg,.svn
-set wildignore+=*.aux,*.out,*.toc
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
-set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
-set wildignore+=*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
-set wildignore+=*.mp3,*.oga,*.ogg,*.wav,*.flac
-set wildignore+=*.eot,*.otf,*.ttf,*.woff
-set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
-set wildignore+=*.swp,.lock,.DS_Store,._*
-set hidden
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
 
-" keys
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+
+" 
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ #refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+let g:_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-emmet',
+    \ 'coc-css',
+    \ 'coc-python',
+    \ 'coc-eslint'
+\ ]
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(-rename)
+
+" Disable tilde
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
