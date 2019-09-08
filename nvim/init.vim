@@ -35,6 +35,7 @@ set termguicolors
 set cursorline
 set hidden
 set relativenumber
+set ic
 syntax enable
 filetype plugin on
 " set updatetime to 100 ms
@@ -184,3 +185,10 @@ nmap <leader>rn <Plug>(-rename)
 
 " Disable tilde
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+
+hi Normal guibg=#100E23
+hi SignColumn guibg=bg
+hi EndofBuffer guifg=bg
+hi CursorLine guibg=black
+hi CursorLineNr guibg=black
+hi VertSplit guifg=black
