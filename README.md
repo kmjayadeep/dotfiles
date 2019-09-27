@@ -3,7 +3,9 @@ dotfiles for my i3 setup
 
 includes polybar and urxvt configuration and scripts
 
-## Packages that maybe needed
+## Packages I use
 
-*. xclip
-*. kitty terminal
+* xclip
+* kitty terminal
+* grip - for markdown preview
+* rofi

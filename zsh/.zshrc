@@ -112,5 +112,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/scripts/bin:$PATH"
 alias zshrc="vim ~/.zshrc;source ~/.zshrc"
 alias please=sudo
+alias c="xclip -selection clipboard"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
