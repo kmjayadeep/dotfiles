@@ -42,3 +42,4 @@ includes polybar and urxvt configuration and scripts
 * ranger
 * scrot
 * openssh
+* xorg-xmodmap
