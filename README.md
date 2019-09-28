@@ -28,6 +28,7 @@ includes polybar and urxvt configuration and scripts
 * pasystray
 * lxappearance
 * docker
+* docker-compose
 * nodejs
 * npm
 * zsh-pure-prompt
@@ -40,3 +41,4 @@ includes polybar and urxvt configuration and scripts
 * htop
 * ranger
 * scrot
+* openssh
