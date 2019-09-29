@@ -306,8 +306,8 @@ label-separator = |
 [module/network-wifi]
 type = internal/network
 interface = wlp0s20u3
-label-connected = %downspeed:8% %essid%
-label-connected-maxlen = 20
+label-connected = %upspeed:8% %downspeed:8% %essid% %local_ip%
+label-connected-maxlen = 200
 label-disconnected =
 
 [module/network-ethernet]
