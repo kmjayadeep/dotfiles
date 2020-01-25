@@ -5,6 +5,7 @@ plugins=(
 	git
 	docker
 	zsh-syntax-highlighting
+	kubectl
 )
 
 
@@ -30,7 +31,9 @@ alias please=sudo
 alias c="xclip -selection clipboard"
 alias v="nvim"
 alias pS="sudo pacman -S"
+alias pSu="sudo pacman -Syu"
 alias pSs="pacman -Ss"
 alias sctl="sudo systemctl"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/nvm/init-nvm.sh

@@ -43,3 +43,4 @@ includes polybar and urxvt configuration and scripts
 * scrot
 * openssh
 * xorg-xmodmap
+* pip
