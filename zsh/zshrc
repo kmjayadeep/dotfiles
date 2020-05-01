@@ -19,6 +19,7 @@ prompt pure
 export EDITOR='vim'
 
 export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="$PATH:$HOME/workspace/scripts"
 export PATH="$PATH:/opt/lampp/bin:/opt/lampp"
 #source virtualenvwrapper.sh
 eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
@@ -34,6 +35,11 @@ alias pS="sudo pacman -S"
 alias pSu="sudo pacman -Syu"
 alias pSs="pacman -Ss"
 alias sctl="sudo systemctl"
+alias o="xdg-open"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/nvm/init-nvm.sh
+
+source /opt/kube-ps1/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
+stty -ixon

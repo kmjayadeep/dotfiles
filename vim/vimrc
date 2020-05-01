@@ -1,0 +1,118 @@
+" defaults
+let mapleader = " "
+
+syntax on
+
+set noerrorbells
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set nowritebackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set relativenumber
+set hidden
+set list listchars=tab:»·,trail:·,nbsp:· " show extra whitespaces
+set splitbelow
+set splitright
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" show a bar at 80 column width
+set textwidth=80
+set colorcolumn=+1
+highlight CanolorColumn ctermbg=0 guibg=lightgrey
+set termguicolors
+
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+nnoremap <Leader><Leader> <C-^>
+
+
+" Make sure these are installed
+" nodejs
+" npm
+" fzf
+" ag
+" Run CocInstall after PlugInstall
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'aswathkk/DarkScene.vim', { 'as': 'challenger-deep' }
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
+Plug 'bling/vim-bufferline'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+
+" colorscheme darkscene
+colorscheme gruvbox
+set background=dark
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Map Ctrl + p to open fuzzy find (FZF)
+nnoremap <c-p> :Files<cr>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in fzf for listing files. Lightning fast and respects .gitignore
+  let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+
+" coc options
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+" nerdtree
+map <C-n> :NERDTreeToggle<CR>
+

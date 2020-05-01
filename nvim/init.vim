@@ -9,7 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'whatyouhide/vim-gotham'
 Plug 'jiangmiao/auto-pairs'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'aswathkk/DarkScene.vim', { 'as': 'challenger-deep' }
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
