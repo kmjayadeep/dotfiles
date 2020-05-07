@@ -61,6 +61,13 @@ nnoremap <C-l> <C-w>l
 " Switch between last buffers
 nnoremap <Leader><Leader> <C-^>
 
+" jump to buffer eg: 12gb
+let c = 1
+while c <= 99
+  execute "nnoremap " . c . "gb :" . c . "b\<CR>"
+  let c += 1
+endwhile
+
 " Copy and paste
 if has('clipboard') && !has('gui_running')
   vnoremap <C-c> "+y
@@ -72,11 +79,10 @@ endif
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'ryanoasis/vim-devicons'
 Plug 'rakr/vim-one'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'aswathkk/DarkScene.vim', { 'as': 'challenger-deep' }
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'bling/vim-bufferline'
 Plug 'morhetz/gruvbox'
@@ -96,7 +102,7 @@ colorscheme one
 set background=dark
 
 " Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <c-p> :Files<cr>
+nnoremap <c-p> :GFiles<cr>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -112,6 +118,8 @@ if executable('ag')
     nnoremap \ :Ag<SPACE>
   endif
 endif
+
+let g:fzf_buffers_jump = 1
 
 
 " coc options
@@ -146,6 +154,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1
