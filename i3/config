@@ -190,8 +190,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% &
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-exec_always /usr/bin/compton --config /home/jayadeep/.config/compton/compton.conf
+exec_always /usr/bin/picom --config /home/jayadeep/.config/picom/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id nitrogen --restore
 
 # i3-gaps
 gaps inner 5 

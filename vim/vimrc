@@ -102,7 +102,7 @@ colorscheme one
 set background=dark
 
 " Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <c-p> :GFiles<cr>
+nnoremap <c-p> :Files<cr>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
