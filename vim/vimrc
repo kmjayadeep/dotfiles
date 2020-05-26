@@ -1,13 +1,3 @@
-" Make sure these are installed
-" vim plug
-" nodejs
-" npm
-" fzf
-" ag
-" Run CocInstall after PlugInstall
-" use gvim instead of vim to ensure clipboard support
-" xset r rate 300 50 to decrease keyboard repeat delay
-
 " defaults
 let mapleader = " "
 
@@ -29,97 +19,33 @@ set undofile
 set incsearch
 set relativenumber
 set hidden
-set list listchars=tab:»·,trail:·,nbsp:· " show extra whitespaces
-set splitbelow
-set splitright
-set so=7 " show minimum 7 lines while scrolling
-set wildmenu
 
 " Give more space for displaying messages.
 set cmdheight=2
 
-" show a bar at 80 column width
-set textwidth=80
-set colorcolumn=+1
-hi CanolorColumn ctermbg=0 guibg=lightgrey
-" hi Normal guibg=NONE ctermbg=NONE
-set termguicolors
+
+set colorcolumn=80
+highlight CanolorColumn ctermbg=0 guibg=lightgrey
+"set termguicolors
 
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" Switch between last buffers
-nnoremap <Leader><Leader> <C-^>
-
-" jump to buffer eg: 12gb
-let c = 1
-while c <= 99
-  execute "nnoremap " . c . "gb :" . c . "b\<CR>"
-  let c += 1
-endwhile
-
-" Copy and paste
-if has('clipboard') && !has('gui_running')
-  vnoremap <C-c> "+y
-  vnoremap <C-x> "+d
-  vnoremap <C-v> "+p
-  inoremap <C-v> <C-r><C-o>+
-endif
-
-" Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'rakr/vim-one'
+Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'git@github.com:ctrlpvim/ctrlp.vim.git'
 Plug 'aswathkk/DarkScene.vim', { 'as': 'challenger-deep' }
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'bling/vim-bufferline'
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdcommenter'
-Plug 'justinmk/vim-sneak'
-Plug 'jiangmiao/auto-pairs'
-Plug 'sheerun/vim-polyglot'
-
 
 call plug#end()
 
 
-" colorscheme darkscene
-colorscheme one
+colorscheme darkscene
 set background=dark
 
-" Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <c-p> :Files<cr>
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in fzf for listing files. Lightning fast and respects .gitignore
-  let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor -g ""'
-  " let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
-let g:fzf_buffers_jump = 1
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 
 " coc options
@@ -135,14 +61,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_global_extensions = [
-    \ 'coc-json',
-    \ 'coc-tsserver',
-    \ 'coc-html',
-    \ 'coc-emmet',
-    \ 'coc-css'
-\ ]
-
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -150,14 +68,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nmap <leader>rn <Plug>(coc-rename)
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
 
-" nerdcommenter
-let g:NERDSpaceDelims = 1
-nnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>
-inoremap <C-_> <esc>:call NERDComment('Toggle', 'Toggle')<CR>
-vnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>gv

@@ -1,9 +1,215 @@
-"=============================================================================
-" init.vim --- Entry file for neovim
-" Copyright (c) 2016-2019 Wang Shidong & Contributors
-" Author: Wang Shidong < wsdjeg at 163.com >
-" URL: https://spacevim.org
-" License: GPLv3
-"=============================================================================
+" Defaults
+"
+let mapleader=' '
 
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config/main.vim'
+
+set noerrorbells
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set nu
+set nowrap
+set ic
+set smartcase
+set noswapfile
+set nobackup
+set nowritebackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set relativenumber
+set hidden
+set list listchars=tab:»·,trail:·,nbsp:· " show extra whitespaces
+set splitbelow
+set splitright
+set so=7 " show minimum 7 lines while scrolling
+set wildmenu
+set mouse=a
+set termguicolors
+set cursorline
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" show a bar at 80 column width
+set textwidth=80
+set colorcolumn=+1
+hi CanolorColumn ctermbg=0 guibg=lightgrey
+" hi Normal guibg=NONE ctermbg=NONE
+set termguicolors
+
+syntax enable
+filetype plugin on
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" set updatetime to 100 ms
+set updatetime=100
+set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50
+
+
+" Switch between last buffers
+nnoremap <Leader><Leader> <C-^>
+
+" Turn off highlight
+nnoremap <Leader>sh :noh<CR>
+
+" Copy and paste
+if has('clipboard') && !has('gui_running')
+  vnoremap <C-c> "+y
+  vnoremap <C-x> "+d
+  vnoremap <C-v> "+p
+  inoremap <C-v> <C-r><C-o>+
+endif
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'rakr/vim-one'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
+Plug 'bling/vim-bufferline'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdcommenter'
+Plug 'justinmk/vim-sneak'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
+
+colorscheme one
+set background=dark
+
+
+" nerdtree
+nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.git$']
+let NERDTreeShowHidden=1
+" let NERDTreeQuitOnOpen=1
+map  <Leader>n  :NERDTreeFind<CR>
+map ] :NERDTreeFind<CR>
+let g:NERDTreeDirArrowExpandable = ' '
+let g:NERDTreeDirArrowCollapsible = ' '
+
+
+" indentLine
+let g:indentLine_char = '┊'
+
+" nerdcommenter
+let g:NERDSpaceDelims = 1
+nnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>
+inoremap <C-_> <esc>:call NERDComment('Toggle', 'Toggle')<CR>
+vnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>gv
+
+" gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_sign_added                     = '+'
+let g:gitgutter_sign_modified                  = '±'
+let g:gitgutter_sign_removed                   = '-'
+let g:gitgutter_sign_removed_first_line        = '×'
+let g:gitgutter_sign_modified_removed          = '×'
+
+" FZF
+nnoremap <C-p> :FZF<cr>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in fzf for listing files. Lightning fast and respects .gitignore
+  let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor -g ""'
+  " let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+let g:fzf_buffers_jump = 1
+
+
+" vim-devicons
+let g:DevIconsEnableFoldersOpenClose = 1
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = 'ﰆ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
+
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.lock.json'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['node_modules'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['webpack\.'] = 'ﰩ'
+
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
+
+
+" coc options
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+let g:_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-emmet',
+    \ 'coc-css',
+    \ 'coc-eslint'
+\ ]
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>rn <Plug>(coc-rename)
+
