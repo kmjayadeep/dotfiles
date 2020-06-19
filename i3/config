@@ -193,6 +193,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% &
 exec_always /usr/bin/picom --config /home/jayadeep/.config/picom/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id dunst
 
 # i3-gaps
 gaps inner 5 

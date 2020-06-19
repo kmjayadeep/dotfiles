@@ -190,8 +190,15 @@ let g:_global_extensions = [
     \ 'coc-html',
     \ 'coc-emmet',
     \ 'coc-css',
+    \ 'coc-prettier',
     \ 'coc-eslint'
 \ ]
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f  <Plug>(coc-format-selected)
+
+nnoremap <leader>p :CocCommand eslint.executeAutofix<CR>
+nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
