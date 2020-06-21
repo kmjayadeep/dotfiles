@@ -87,6 +87,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'justinmk/vim-sneak'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
