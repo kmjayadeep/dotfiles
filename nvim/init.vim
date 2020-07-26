@@ -32,9 +32,8 @@ set cursorline
 " Give more space for displaying messages.
 set cmdheight=2
 
-" show a bar at 80 column width
-set textwidth=80
-set colorcolumn=+1
+" show a bar at 100 column width
+set colorcolumn=101
 hi CanolorColumn ctermbg=0 guibg=lightgrey
 " hi Normal guibg=NONE ctermbg=NONE
 set termguicolors
@@ -53,6 +52,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" avoid accidently get stuck in ex mode
+map q: <Nop>
+nnoremap Q <nop>
 
 " set updatetime to 100 ms
 set updatetime=100
@@ -75,12 +78,15 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rakr/vim-one'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-surround'
 " Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
-Plug 'bling/vim-bufferline'
-Plug 'morhetz/gruvbox'
+" Plug 'bling/vim-bufferline'
+" Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
@@ -88,7 +94,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
-Plug 'gabrielelana/vim-markdown'
 
 call plug#end()
 
@@ -196,11 +201,12 @@ let g:_global_extensions = [
     \ 'coc-eslint'
 \ ]
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f  <Plug>(coc-format-selected)
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" vmap <leader>f  <Plug>(coc-format-selected)
 
 nnoremap <leader>p :CocCommand eslint.executeAutofix<CR>
-nnoremap <leader>f :CocCommand prettier.formatFile<CR>
+" nnoremap <leader>f :CocCommand prettier.formatFile<CR>
+nmap <Leader>f <Plug>(Prettier)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -219,6 +225,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 

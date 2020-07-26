@@ -7,6 +7,7 @@ plugins=(
 	docker
 	zsh-syntax-highlighting
   zsh-nvm
+  z
 )
 
 
@@ -38,6 +39,10 @@ alias pSu="sudo pacman -Syu"
 alias pSs="pacman -Ss"
 alias sctl="sudo systemctl"
 alias k=kubectl
+alias la="exa -lah"
+
+alias brokeradmin='k get ing -o=custom-columns="host:.spec.rules[0].host"  | grep admin-enroll-review-$(git rev-parse --abbrev-ref HEAD  | cut -c 1-7)'
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
