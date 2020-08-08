@@ -30,6 +30,7 @@ export SSH_AUTH_SOCK
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/scripts/bin:$PATH"
 export PATH="$PATH:$HOME/workspace/scripts"
+export GOPATH=~/workspace/go
 alias zshrc="vim ~/.zshrc;source ~/.zshrc"
 alias please=sudo
 alias c="xclip -selection clipboard"
@@ -40,9 +41,20 @@ alias pSs="pacman -Ss"
 alias sctl="sudo systemctl"
 alias k=kubectl
 alias la="exa -lah"
+alias o="xdg-open"
 
 alias brokeradmin='k get ing -o=custom-columns="host:.spec.rules[0].host"  | grep admin-enroll-review-$(git rev-parse --abbrev-ref HEAD  | cut -c 1-7)'
 
 
+read -r last_backup_date  < ~/workspace/backups/last_backup_date
+current_date=$(date -u +"%Y-%m-%d")
+[[ "$last_backup_date" =~ $current_date.* ]] || echo "Last backup was done on $last_backup_date"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+PATH="/home/jayadeep/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jayadeep/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jayadeep/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jayadeep/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jayadeep/perl5"; export PERL_MM_OPT;
