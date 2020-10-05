@@ -6,8 +6,7 @@ plugins=(
 	git
 	docker
 	zsh-syntax-highlighting
-  zsh-nvm
-  z
+  	z
 )
 
 
@@ -43,7 +42,7 @@ alias k=kubectl
 alias la="exa -lah"
 alias o="xdg-open"
 
-alias brokeradmin='k get ing -o=custom-columns="host:.spec.rules[0].host"  | grep admin-enroll-review-$(git rev-parse --abbrev-ref HEAD  | cut -c 1-7)'
+alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
 
 read -r last_backup_date  < ~/workspace/backups/last_backup_date

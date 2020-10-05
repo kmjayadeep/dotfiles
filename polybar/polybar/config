@@ -1,0 +1,371 @@
+[colors]
+background       = #551D2324
+background-alt   = #394447
+background-dim   = #252e30
+background-bri   = #4f5f63
+foreground       = #586E75
+foreground-alt   = #3E3E3E
+foreground-green = #00F800
+foreground-dim   = #1a1a1a
+foreground-dark  = #000000
+foreground-bri   = #ffffff
+primary          = #859900
+secondary        = #586E75
+alert            = #268BD2
+
+### bright theme (uncomment and comment out to switch)
+fg    = ${colors.foreground-bri}
+fg-sp = ${colors.foreground-green}
+### dark theme
+#fg    = ${colors.foreground-dim}
+#fg-sp = ${colors.foreground}
+
+##############################
+##############################
+
+[bar/top]
+
+bottom = false
+width = 100%
+height = 15
+offset-x = 0
+offset-y = 0
+
+underline-size = 1
+
+background = ${colors.background}
+foreground = ${colors.fg}
+
+border-top-size = 3
+border-top-color = ${colors.background}
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 0
+padding-left = 0
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = FontAwesome:size=9;0
+font-1 = DejaVu Sans:size=9;0
+font-2 = Font Awesome 5 Free:style=Regular:pixelsize=8;0
+font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8;0
+font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=8;0
+
+modules-left = menu0 i3
+modules-center = date
+modules-right = network-ethernet network-wifi cpu temperature memory volume battery
+
+fixed-center = true
+
+tray-position = right
+tray-padding = 2
+tray-detached = false
+
+##############################
+##############################
+
+[bar/top_hdmi]
+
+bottom = false
+width = 100%
+height = 15
+offset-x = 0
+offset-y = 0
+
+underline-size = 1
+
+background = ${colors.background}
+foreground = ${colors.fg}
+
+border-top-size = 3
+border-top-color = ${colors.background}
+border-bottom-size = 0
+border-bottom-color = ${colors.background}
+
+spacing = 0
+padding-left = 0
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = FontAwesome:size=8;0
+font-1 = DejaVu Sans:size=8;0
+font-2 = Font Awesome 5 Free:style=Regular:pixelsize=8;0
+font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8;0
+font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=8;0
+
+modules-left = menu0 i3 now_playing mpd
+modules-center = date
+modules-right = backlight network-ethernet network-wifi cpu temperature memory volume battery
+
+fixed-center = true
+
+tray-position = right
+tray-padding = 2
+tray-detached = false
+
+##############################
+##############################
+
+[bar/top_lower]
+bottom = false
+width = 100%
+height = 12
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground-dim}
+
+border-top-size = 0
+border-top-color-size = ${colors.background}
+border-bottom-size = 0
+border-bottom-color-size = ${colors.background}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = FontAwesome:size=8;0
+font-1 = DejaVu Sans:size=7;0
+
+modules-left =
+modules-center = title
+modules-right =
+
+##############################
+##############################
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-font = 2
+label-mode-padding = 2
+label-mode-background = #e60053
+
+label-focused = %name%
+label-focused-foreground = ${colors.fg-sp}
+label-focused-underline = ${colors.fg-sp}
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 1
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.background-bri}
+label-urgent-background = ${colors.foreground-dim}
+label-urgent-padding = 1
+
+##############################
+##############################
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %a, %d/%m/%Y -
+
+time = %H:%M
+
+label =  %date% %{F$colors.fg-sp}  %time% %{F-}
+
+format-padding = 1
+
+##############################
+##############################
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 4200
+
+intervel = 2
+
+format-online = <label-song> <icon-prev> <icon-play> <icon-pause> <icon-next>
+format-offline = <label-offline>
+
+label-offline =  no music
+label-offline-foreground = ${colors.foreground-dim}
+
+label-song = %artist% - %title%
+label-song-maxlen = 95
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = <<
+icon-stop = o
+icon-pause = 
+icon-play = 
+icon-next = 
+icon-seekf = >>
+
+icon-random = S
+icon-repeat = R
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+##############################
+##############################
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = " "
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-framerate = 750
+
+##############################
+##############################
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+format-volume = <label-volume>
+label-volume =  %percentage%
+label-muted =  muted
+label-muted-foreground = #666
+interval = 5
+
+##############################
+##############################
+
+[module/cpu]
+type = internal/cpu
+interval = 1.5
+format = <label>
+format-margin = 1
+label =  %percentage%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+##############################
+##############################
+[module/temperature]
+type = custom/script
+exec = ~/scripts/status_temperature.sh
+label =  %output%°
+
+##############################
+##############################
+
+[module/menu0]
+type = custom/menu
+
+format = <label-toggle> <menu>
+format-padding = 2
+
+menu-0-0 = System
+menu-0-0-exec = menu-open-1
+
+menu-1-0 = Standby
+menu-1-0-exec = systemctl suspend
+menu-1-1 = Power off
+menu-1-1-exec = poweroff
+
+label-open =  
+label-close = 
+label-separator = |
+
+##############################
+##############################
+
+[module/network-wifi]
+type = internal/network
+interface = wlp3s0
+label-connected = %upspeed:8% %downspeed:8% %essid% %local_ip%
+label-connected-maxlen = 200
+label-disconnected =
+
+[module/network-ethernet]
+type = internal/network
+interface = enp0s25
+label-connected = %downspeed:8% LAN
+label-connected-maxlen = 15
+label-disconnected =
+
+
+##############################
+##############################
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+label =   %gb_used%
+
+##############################
+##############################
+
+[module/now_playing]
+type = custom/script
+exec = "python ~/scripts/now_playing/now_playing.py"
+tail = true
+format = <label>
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+label = %output%
+label-maxlen = 75
+label-ellipsis = true
+format-margin = 20
+
+##############################
+##############################
+
+[module/title]
+type = internal/xwindow
+
+label = %title%
+label-maxlen = 50
+
+
+[module/backlight]
+type = internal/xbacklight
+
+#XRandR output to get get values from
+#Default: the monitor defined for the running bar
+#output = HDMI-1
+
+# Create scroll handlers used to set the backlight value
+# Default: true
+enable-scroll = false
+
+
+[settings]
+screenchange-reload = false

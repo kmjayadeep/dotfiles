@@ -133,6 +133,7 @@ let g:gitgutter_sign_modified_removed          = '×'
 
 " FZF
 nnoremap <C-p> :FZF<cr>
+nnoremap [ :GFiles<cr>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -143,10 +144,14 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor -g ""'
   " let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
 
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
+  " if !exists(":Ag")
+    " command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    " nnoremap \ :Ag<SPACE>
+  " endif
+endif
+if executable('ag') && !exists(":Ag")
+  command -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Rg<SPACE>
 endif
 
 let g:fzf_buffers_jump = 1
@@ -198,7 +203,8 @@ let g:_global_extensions = [
     \ 'coc-emmet',
     \ 'coc-css',
     \ 'coc-prettier',
-    \ 'coc-eslint'
+    \ 'coc-eslint',
+    \ 'coc-go'
 \ ]
 
 " command! -nargs=0 Prettier :CocCommand prettier.formatFile

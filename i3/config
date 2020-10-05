@@ -165,11 +165,11 @@ mode "resize" {
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /home/jayadeep/scripts/bin/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id /home/jayadeep/scripts/bin/i3exit.sh logout, mode "default"
-    bindsym s exec --no-startup-id /home/jayadeep/scripts/bin/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id /home/jayadeep/scripts/bin/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id /home/jayadeep/scripts/bin/i3exit.sh reboot, mode "default"
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
@@ -179,8 +179,8 @@ mode "$mode_system" {
 bindsym $mod+Shift+p mode "$mode_system"
 #bindsym $mod+Shift+m exec notify-send $PATH
 
-bindsym $mod+o exec xrandr --output HDMiI1 --primary --mode "1920x1080" --output eDP1 --off
-bindsym $mod+Shift+o exec xrandr --output eDP1 --auto
+bindsym $mod+o exec xrandr --output HDMI-1 --primary --mode "1920x1080" --output eDP-1 --off
+bindsym $mod+Shift+o exec xrandr --output eDP-1 --auto
 
 bindsym $mod+r mode "resize"
 
