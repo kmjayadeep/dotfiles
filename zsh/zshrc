@@ -29,6 +29,7 @@ export SSH_AUTH_SOCK
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/scripts/bin:$PATH"
 export PATH="$PATH:$HOME/workspace/scripts"
+export PATH="$PATH:$HOME/workspace/go/bin"
 export GOPATH=~/workspace/go
 alias zshrc="vim ~/.zshrc;source ~/.zshrc"
 alias please=sudo
@@ -57,3 +58,5 @@ PERL5LIB="/home/jayadeep/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5
 PERL_LOCAL_LIB_ROOT="/home/jayadeep/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/jayadeep/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jayadeep/perl5"; export PERL_MM_OPT;
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
