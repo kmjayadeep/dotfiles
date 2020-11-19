@@ -201,6 +201,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always /usr/bin/picom --config /home/jayadeep/.config/picom/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
+exec_always ~/.config/i3/scripts/gnome-keyring.sh
 exec --no-startup-id xmodmap /home/jayadeep/.Xmodmap
 exec --no-startup-id dunst
 
