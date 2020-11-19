@@ -46,6 +46,9 @@ alias o="xdg-open"
 
 alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
+# Variables
+export PASSWORD_STORE_DIR=~/workspace/security/password-store
+
 
 read -r last_backup_date  < ~/workspace/backups/last_backup_date
 current_date=$(date -u +"%Y-%m-%d")
