@@ -17,7 +17,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 PATH="$HOME/.node/bin:$PATH"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
@@ -32,7 +32,7 @@ export PATH="$PATH:$HOME/workspace/scripts"
 export PATH="$PATH:$HOME/workspace/go/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export GOPATH=~/workspace/go
-alias zshrc="vim ~/.zshrc;source ~/.zshrc"
+alias zshrc="nvim ~/.zshrc;source ~/.zshrc"
 alias please=sudo
 alias c="xclip -selection clipboard"
 alias v="nvim"
@@ -63,6 +63,7 @@ PERL_LOCAL_LIB_ROOT="/home/jayadeep/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LI
 PERL_MB_OPT="--install_base \"/home/jayadeep/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jayadeep/perl5"; export PERL_MM_OPT;
 export WORKON_HOME=~/.virtualenvs
+export CLOUDSDK_PYTHON=python2
 source /usr/bin/virtualenvwrapper.sh
 
 if [ -f ~/.ssh/agent.env ] ; then
