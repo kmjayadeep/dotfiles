@@ -29,6 +29,11 @@ set mouse=a
 set termguicolors
 set cursorline
 
+" Spelling
+set nospell spelllang=en_us
+nnoremap <silent> <F6> :set invspell<cr>
+inoremap <silent> <F6> <C-O>:set invspell<cr>
+
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -80,7 +85,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'rakr/vim-one'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 " Plug 'vim-airline/vim-airline'
@@ -94,6 +98,13 @@ Plug 'justinmk/vim-sneak'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Themes
+Plug 'rakr/vim-one'
+
+" Markdown Previewer
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -117,6 +128,10 @@ let g:NERDTreeDirArrowCollapsible = ' '
 " indentLine
 let g:indentLine_char = '┊'
 
+" disable conceal for JSON and markdown
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 " nerdcommenter
 let g:NERDSpaceDelims = 1
 nnoremap <C-_> :call NERDComment('Toggle', 'Toggle')<CR>
@@ -182,7 +197,7 @@ let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 
 
-" coc options
+" COC options
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
