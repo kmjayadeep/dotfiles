@@ -44,3 +44,4 @@ includes polybar and urxvt configuration and scripts
 * openssh
 * xorg-xmodmap
 * pip
+* konfig https://github.com/corneliusweig/konfig
