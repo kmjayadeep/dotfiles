@@ -1,0 +1,83 @@
+# General
+alias zshrc="nvim ~/.zshrc;source ~/.zshrc"
+alias please=sudo
+alias c="xclip -selection clipboard"
+alias sctl="sudo systemctl"
+alias v="nvim"
+alias la="exa -lah"
+alias o="xdg-open"
+
+# Pacman
+alias pS="sudo pacman -S"
+alias pSu="sudo pacman -Syu"
+alias pSs="pacman -Ss"
+
+# Kubernetes
+alias k=kubectl
+alias kctx=kubectx
+alias kns=kubens
+alias kc="kubie ctx"
+alias kn="kubie ns"
+alias knodeip="kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type==\"ExternalIP\")].address}'"
+
+
+# alias po for k get po, deploy for k get deploy etc
+for res in po deploy svc netsvc slicegw slice ing
+do
+  alias $res="kubectl get $res"
+done
+
+# get pod logs
+function klogs(){
+  pod=$1
+  container=$2
+  if [ -z $container ]
+  then
+    kubectl logs -f $pod
+  else
+    kubectl logs -f $pod -c $container
+  fi
+}
+
+# get deploy logs
+function klogsd(){
+  deploy=$1
+  container=$2
+  if [ -z $container ]
+  then
+    kubectl logs -f deploy/$deploy
+  else
+    kubectl logs -f deploy/$deploy -c $container
+  fi
+}
+
+# exec into pod
+function kshell(){
+  pod=$1
+  container=$2
+  if [ -z $container ]
+  then
+    kubectl exec -ti $pod -- sh
+  else
+    kubectl exec -it $pod -c $container -- sh
+  fi
+}
+
+# exec into deploy
+function kshelld(){
+  pod=$1
+  container=$2
+  if [ -z $container ]
+  then
+    kubectl exec -ti deploy/$pod -- sh
+  else
+    kubectl exec -it deploy/$pod -c $container -- sh
+  fi
+}
+
+# pod port-forwarding
+function kport(){
+  resource=$1
+  port=$2
+  kubectl port-forward $resource $port
+}

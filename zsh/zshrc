@@ -6,7 +6,7 @@ plugins=(
 	git
 	docker
 	zsh-syntax-highlighting
-  	z
+  z
 )
 
 
@@ -32,17 +32,6 @@ export PATH="$PATH:$HOME/workspace/scripts"
 export PATH="$PATH:$HOME/workspace/go/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export GOPATH=~/workspace/go
-alias zshrc="nvim ~/.zshrc;source ~/.zshrc"
-alias please=sudo
-alias c="xclip -selection clipboard"
-alias v="nvim"
-alias pS="sudo pacman -S"
-alias pSu="sudo pacman -Syu"
-alias pSs="pacman -Ss"
-alias sctl="sudo systemctl"
-alias k=kubectl
-alias la="exa -lah"
-alias o="xdg-open"
 
 alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
@@ -65,6 +54,10 @@ PERL_MM_OPT="INSTALL_BASE=/home/jayadeep/perl5"; export PERL_MM_OPT;
 export WORKON_HOME=~/.virtualenvs
 export CLOUDSDK_PYTHON=python2
 source /usr/bin/virtualenvwrapper.sh
+
+
+# aliases
+source $HOME/.bash_aliases
 
 if [ -f ~/.ssh/agent.env ] ; then
     . ~/.ssh/agent.env > /dev/null
