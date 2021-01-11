@@ -31,6 +31,7 @@ export PATH="$HOME/scripts/bin:$PATH"
 export PATH="$PATH:$HOME/workspace/scripts"
 export PATH="$PATH:$HOME/workspace/go/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH=~/.npm-global/bin:$PATH
 export GOPATH=~/workspace/go
 
 alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"

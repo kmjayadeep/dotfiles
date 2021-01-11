@@ -1,5 +1,7 @@
 # General
 alias zshrc="nvim ~/.zshrc;source ~/.zshrc"
+alias vconf="nvim ~/.config/nvim/init.vim"
+alias i3conf="nvim ~/.config/i3/config"
 alias please=sudo
 alias c="xclip -selection clipboard"
 alias sctl="sudo systemctl"
@@ -12,47 +14,30 @@ alias pS="sudo pacman -S"
 alias pSu="sudo pacman -Syu"
 alias pSs="pacman -Ss"
 
+# docker
+alias dc=docker-compose
+alias pc=podman-compose
+
 # Kubernetes
 alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
 alias kc="kubie ctx"
 alias kn="kubie ns"
-alias knodeip="kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type==\"ExternalIP\")].address}'"
-
+alias knip="kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type==\"InternalIP\")].address}'"
+alias kip="kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type==\"ExternalIP\")].address}'"
+alias kp="kubectl port-forward"
+alias klo="kubectl logs -f"
+alias ke="kubectl exec -ti"
 
 # alias po for k get po, deploy for k get deploy etc
-for res in po deploy svc netsvc slicegw slice ing
+for res in po deploy svc netsvc slicegw slice ing vs gw dr ds se
 do
   alias $res="kubectl get $res"
 done
 
-# get pod logs
-function klogs(){
-  pod=$1
-  container=$2
-  if [ -z $container ]
-  then
-    kubectl logs -f $pod
-  else
-    kubectl logs -f $pod -c $container
-  fi
-}
-
-# get deploy logs
-function klogsd(){
-  deploy=$1
-  container=$2
-  if [ -z $container ]
-  then
-    kubectl logs -f deploy/$deploy
-  else
-    kubectl logs -f deploy/$deploy -c $container
-  fi
-}
-
 # exec into pod
-function kshell(){
+function ksh(){
   pod=$1
   container=$2
   if [ -z $container ]
@@ -61,23 +46,4 @@ function kshell(){
   else
     kubectl exec -it $pod -c $container -- sh
   fi
-}
-
-# exec into deploy
-function kshelld(){
-  pod=$1
-  container=$2
-  if [ -z $container ]
-  then
-    kubectl exec -ti deploy/$pod -- sh
-  else
-    kubectl exec -it deploy/$pod -c $container -- sh
-  fi
-}
-
-# pod port-forwarding
-function kport(){
-  resource=$1
-  port=$2
-  kubectl port-forward $resource $port
 }
