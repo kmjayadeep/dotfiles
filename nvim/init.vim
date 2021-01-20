@@ -147,8 +147,9 @@ let g:gitgutter_sign_removed_first_line        = '×'
 let g:gitgutter_sign_modified_removed          = '×'
 
 " FZF
-nnoremap <C-p> :FZF<cr>
-nnoremap [ :GFiles<cr>
+nnoremap <C-p> :Files<cr>
+nnoremap <C-g> :GFiles<cr>
+nnoremap <silent><leader>l :Buffers<CR>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -209,7 +210,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 let g:_global_extensions = [
     \ 'coc-json',
