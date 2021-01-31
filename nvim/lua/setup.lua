@@ -39,6 +39,7 @@ vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = 'ﰆ'
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
+
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
 
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
