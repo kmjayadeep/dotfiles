@@ -6,7 +6,7 @@
 
 vim.cmd('packadd packer.nvim')
 
-return require('packer').startup(
+require('packer').startup(
   function()
     use {'wbthomason/packer.nvim', opt = true}
     use 'preservim/nerdtree'

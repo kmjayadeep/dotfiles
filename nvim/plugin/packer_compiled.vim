@@ -32,12 +32,6 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/coc.nvim"
   },
-  ["dashboard-nvim"] = {
-    loaded = true,
-    only_sequence = true,
-    only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
-  },
   ["fzf.vim"] = {
     loaded = true,
     only_sequence = true,
@@ -68,6 +62,12 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/opt/packer.nvim"
   },
+  ["vim-devicons"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-devicons"
+  },
   ["vim-gitgutter"] = {
     loaded = true,
     only_sequence = true,
@@ -80,11 +80,23 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-go"
   },
+  ["vim-nerdtree-syntax-highlight"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-nerdtree-syntax-highlight"
+  },
   ["vim-one"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-one"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-surround"
   }
 }
 

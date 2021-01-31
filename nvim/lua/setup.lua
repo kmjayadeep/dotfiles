@@ -29,9 +29,11 @@ vim.g.gitgutter_sign_modified_removed          = '×'
 -- FZF
 vim.g.fzf_buffers_jump = 1
 
- -- vim-devicons
+
+-- NERDTree Icons
 vim.g.DevIconsEnableFoldersOpenClose = 1
-vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+
+vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = vim.empty_dict()
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
@@ -39,10 +41,9 @@ vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jsx'] = 'ﰆ'
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yaml'] = ''
-
 vim.g.WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['yml'] = ''
 
-vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols = vim.empty_dict()
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vimrc.*'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.gitignore'] = ''
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols['package.json'] = ''
