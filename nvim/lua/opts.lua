@@ -10,6 +10,9 @@ vim.o.incsearch = true
 vim.o.scrolloff = 7
 vim.o.mouse = 'a'
 vim.o.cmdheight = 2
+vim.o.updatetime = 100
+vim.o.undodir = '~/.vim/undodir'
+
 
 
 -- Window options
@@ -33,6 +36,8 @@ vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.o.swapfile = false
 vim.bo.swapfile = false
+vim.o.undofile = true
+vim.bo.undofile = true
 
 
 vim.g.mapleader = ' '

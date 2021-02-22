@@ -50,11 +50,17 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nerdcommenter"
   },
-  nerdtree = {
+  ["nvim-tree.lua"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nerdtree"
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = false,
@@ -62,11 +68,11 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/opt/packer.nvim"
   },
-  ["vim-devicons"] = {
+  ["vim-fugitive"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-devicons"
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
@@ -80,17 +86,17 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-go"
   },
-  ["vim-nerdtree-syntax-highlight"] = {
-    loaded = true,
-    only_sequence = true,
-    only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-nerdtree-syntax-highlight"
-  },
   ["vim-one"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-one"
+  },
+  ["vim-prettier"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-prettier"
   },
   ["vim-surround"] = {
     loaded = true,

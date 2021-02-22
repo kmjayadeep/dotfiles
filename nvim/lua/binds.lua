@@ -1,20 +1,27 @@
 local opts = {noremap = true, silent = true}
 local mapOpts = {noremap = false, silent = true}
 
+-- Disable that annoying thing
 vim.api.nvim_set_keymap('n', 'Q', '<nop>', opts)
 
--- NERDTree
-vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTreeToggle<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>nn', ':NERDTreeToggle<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>nf', ':NERDTreeFind<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>nc', ':NERDTreeClose<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>nr', ':NERDTreeRefreshRoot<CR>', opts)
+-- Nvim Config
+vim.api.nvim_set_keymap('n', '<Leader>cr', ':luafile %', opts)
+vim.api.nvim_set_keymap('n', '<Leader>ce', ':vsp ~/.config/nvim/lua/init.lua<CR>', opts)
+
+-- NvimTree
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>nf', ':NvimTreeFindFile<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>nr', ':NvimTreeRefresh<CR>', opts)
 
 -- Window movement
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', opts)
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)
+
+-- Quit and save
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
+vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', opts)
 
 
 -- navigation
