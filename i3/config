@@ -222,8 +222,10 @@ for_window [class="^.*"] border pixel 1
 
 ## Volume control
 
+# Not gonna use volume controls anymore
+# If needed in the future, refer https://github.com/hastinbe/i3-volume
 # Path to volume control, without trailing slash
-set $volumepath ~/workspace/scripts/i3-volume/volume
+# set $volumepath ~/workspace/dependencies/i3-volume/volume
 
 # Command for the status line
 #   ie: i3blocks, i3status
@@ -235,11 +237,11 @@ set $statuscmd i3status
 set $statussig SIGUSR1
 
 # Amount to increase/decrease volume as a percentage
-set $volumestep 5
+# set $volumestep 5
 
-bindsym XF86AudioRaiseVolume exec $volumepath -npl -i $volumestep -t $statuscmd -u $statussig
-bindsym XF86AudioLowerVolume exec $volumepath -npl -d $volumestep -t $statuscmd -u $statussig
-bindsym XF86AudioMute        exec $volumepath -mnl -t $statuscmd -u $statussig
+# bindsym XF86AudioRaiseVolume exec $volumepath -npl -i $volumestep -t $statuscmd -u $statussig
+# bindsym XF86AudioLowerVolume exec $volumepath -npl -d $volumestep -t $statuscmd -u $statussig
+# bindsym XF86AudioMute        exec $volumepath -mnl -t $statuscmd -u $statussig
 
 # screenshot
 bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots'

@@ -29,7 +29,10 @@ export SSH_AUTH_SOCK
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/scripts/bin:$PATH"
 export PATH="$PATH:$HOME/workspace/scripts"
-export PATH="$PATH:$HOME/workspace/scripts/polybar"
+# Symlinks to scripts in other folders
+export PATH="$PATH:$HOME/bin"
+# Some work related scripts which contains confidential info
+export PATH="$PATH:$HOME/workspace/private_scripts"
 export PATH="$PATH:$HOME/workspace/go/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH=~/.npm-global/bin:$PATH

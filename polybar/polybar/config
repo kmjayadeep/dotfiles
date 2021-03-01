@@ -189,7 +189,7 @@ format-padding = 1
 
 [module/publicip]
 type = custom/script
-exec = ~/workspace/scripts/polybar/network-publicip.sh
+exec = ~/workspace/scripts/publicip
 interval = 60
 
 ##############################
@@ -197,7 +197,7 @@ interval = 60
 
 [module/pomo]
 type = custom/script
-exec = ~/workspace/scripts/polybar/pomo
+exec = ~/bin/pomo
 interval = 1
 
 ##############################
