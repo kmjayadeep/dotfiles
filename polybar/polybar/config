@@ -53,8 +53,8 @@ font-2 = Font Awesome 5 Free:style=Regular:pixelsize=8;0
 font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8;0
 font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=8;0
 
-modules-left = menu0 i3
-modules-center = date
+modules-left = menu0 i3 pomo
+modules-center = publicip date
 modules-right = network-ethernet network-wifi cpu temperature memory volume battery
 
 fixed-center = true
@@ -183,6 +183,22 @@ time = %H:%M
 label =  %date% %{F$colors.fg-sp}  %time% %{F-}
 
 format-padding = 1
+
+##############################
+##############################
+
+[module/publicip]
+type = custom/script
+exec = ~/workspace/scripts/polybar/network-publicip.sh
+interval = 60
+
+##############################
+##############################
+
+[module/pomo]
+type = custom/script
+exec = ~/workspace/scripts/polybar/pomo
+interval = 1
 
 ##############################
 ##############################

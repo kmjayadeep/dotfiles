@@ -29,7 +29,7 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# start a termina
 bindsym $mod+Return exec kitty
 
 # kill focused window
@@ -206,7 +206,7 @@ exec --no-startup-id xmodmap /home/jayadeep/.Xmodmap
 exec --no-startup-id dunst
 
 # i3-gaps
-gaps inner 5 
+gaps inner 0
 gaps outer 0
 
 exec --no-startup-id nm-applet
@@ -242,4 +242,5 @@ bindsym XF86AudioLowerVolume exec $volumepath -npl -d $volumestep -t $statuscmd 
 bindsym XF86AudioMute        exec $volumepath -mnl -t $statuscmd -u $statussig
 
 # screenshot
-bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
+bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
+bindsym --release Shift+Print exec scrot -s -e 'mv $f ~/Pictures/Screenshots'
