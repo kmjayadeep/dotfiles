@@ -13,9 +13,14 @@ alias v="nvim"
 alias la="exa -lah"
 alias o="xdg-open"
 alias tt="taskwarrior-tui"
+alias weather='curl "wttr.in?0Fq"'
+alias moon="curl wttr.in/moon"
 
 # taskwarrior
 alias tt="taskwarrior-tui"
+
+# Git
+alias push="git push"
 
 # Pacman
 alias pS="sudo pacman -S"
