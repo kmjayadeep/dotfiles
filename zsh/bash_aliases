@@ -15,6 +15,7 @@ alias o="xdg-open"
 alias tt="taskwarrior-tui"
 alias weather='curl "wttr.in?0Fq"'
 alias moon="curl wttr.in/moon"
+alias record="ffmpeg -f x11grab  -s 1920x1080 -i :0.0 -r 25 -vcodec libx264  output.mkv"
 
 # taskwarrior
 alias tt="taskwarrior-tui"
