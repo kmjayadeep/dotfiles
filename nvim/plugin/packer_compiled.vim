@@ -26,17 +26,17 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    only_sequence = true,
-    only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/coc.nvim"
-  },
   ["fzf.vim"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/fzf.vim"
+  },
+  gruvbox = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/gruvbox"
   },
   indentLine = {
     loaded = true,
@@ -44,17 +44,41 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/indentLine"
   },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nerdcommenter"
   },
+  ["nvim-compe"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    only_sequence = true,
+    only_setup = false,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -80,23 +104,11 @@ _G.packer_plugins = {
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
   },
-  ["vim-go"] = {
-    loaded = true,
-    only_sequence = true,
-    only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-go"
-  },
   ["vim-one"] = {
     loaded = true,
     only_sequence = true,
     only_setup = false,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-one"
-  },
-  ["vim-prettier"] = {
-    loaded = true,
-    only_sequence = true,
-    only_setup = false,
-    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/vim-prettier"
   },
   ["vim-surround"] = {
     loaded = true,

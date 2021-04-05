@@ -246,3 +246,7 @@ set $statussig SIGUSR1
 # screenshot
 bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
 bindsym --release Shift+Print exec scrot -s -e 'mv $f ~/Pictures/Screenshots'
+
+
+# Increase keyboard repetiton rate
+exec xset r rate 250    60

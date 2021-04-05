@@ -1,5 +1,5 @@
 -- COC Language support
-vim.g.coc_global_extensions = { 'coc-tsserver', 'coc-html', 'coc-css', 'coc-go' }
+vim.g.coc_global_extensions = { 'coc-tsserver', 'coc-html', 'coc-css' }
 
 -- Disable conceal cursor when using indentline
 vim.g.indentLine_concealcursor=""

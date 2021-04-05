@@ -11,6 +11,7 @@ require('packer').startup(
 
     -- Themes
     use 'rakr/vim-one'
+    use 'morhetz/gruvbox'
 
     -- Git integration
     use 'tpope/vim-fugitive'
@@ -20,16 +21,25 @@ require('packer').startup(
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
 
-    -- JS
-    use 'prettier/vim-prettier'
+    -- LSP
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/nvim-compe'
+    use 'glepnir/lspsaga.nvim'
 
+    -- Treesitter
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    -- JS
+    -- use 'prettier/vim-prettier'
+
+    -- Common
     use {'wbthomason/packer.nvim', opt = true}
     use 'junegunn/fzf.vim'
     use 'preservim/nerdcommenter'
     use 'jiangmiao/auto-pairs'
     use 'Yggdroot/indentLine'
-    use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
-    use { 'neoclide/coc.nvim', branch = 'release' }
+    -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
+    -- use { 'neoclide/coc.nvim', branch = 'release' }
     use 'tpope/vim-surround'
   end
 )

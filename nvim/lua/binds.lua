@@ -43,12 +43,12 @@ vim.api.nvim_set_keymap('n', '<C-g>', ':Files<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>l', ':Buffers<CR>', opts)
 
 -- COC
-vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', mapOpts)
-vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', mapOpts)
-vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', mapOpts)
-vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', mapOpts)
-vim.api.nvim_set_keymap('n', '<Leader>rn', '<Plug>(coc-rename)', mapOpts)
-vim.api.nvim_set_keymap('n', '<Leader>do', '<Plug>(coc-codeaction)', mapOpts)
+-- vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', mapOpts)
+-- vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', mapOpts)
+-- vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', mapOpts)
+-- vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', mapOpts)
+-- vim.api.nvim_set_keymap('n', '<Leader>rn', '<Plug>(coc-rename)', mapOpts)
+-- vim.api.nvim_set_keymap('n', '<Leader>do', '<Plug>(coc-codeaction)', mapOpts)
 
 -- NerdCommenter
 vim.api.nvim_set_keymap('n', '<C-_>', ":call NERDComment('Toggle', 'Toggle')<CR>", mapOpts)
