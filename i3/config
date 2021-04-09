@@ -96,16 +96,16 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 
-set $ws1 "1: Firefox"
-set $ws2 "2: Editor"
+set $ws1 "1: Web"
+set $ws2 "2: Editor"
 set $ws3 "3: Term"
-set $ws4 "4: Others"
-set $ws5 "5: Others"
-set $ws6 "6: Others"
+set $ws4 "4: Remote"
+set $ws5 "5: Misc"
+set $ws6 "6: Social"
 set $ws7 "7: Steam"
-set $ws8 "8: Dota2"
-set $ws9 "9: Chrome"
-set $ws0 "10: Social"
+set $ws8 "8: Game"
+set $ws9 "9: Scripts"
+set $ws0 "10: Media"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -249,4 +249,4 @@ bindsym --release Shift+Print exec scrot -s -d 2 -e 'mv $f ~/Pictures/Screenshot
 
 
 # Increase keyboard repetiton rate
-exec xset r rate 250    60
+exec xset r rate 250 60
