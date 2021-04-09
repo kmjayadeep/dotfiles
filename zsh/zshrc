@@ -7,6 +7,7 @@ plugins=(
 	docker
 	zsh-syntax-highlighting
   z
+  taskwarrior
 )
 
 
@@ -58,11 +59,14 @@ PERL_MB_OPT="--install_base \"/home/jayadeep/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jayadeep/perl5"; export PERL_MM_OPT;
 export WORKON_HOME=~/.virtualenvs
 export CLOUDSDK_PYTHON=python2
-source /usr/bin/virtualenvwrapper.sh
+#source /usr/bin/virtualenvwrapper.sh
 
 
 # aliases
 source $HOME/.bash_aliases
+
+# Private conf
+source $HOME/.zshrc_private
 
 if [ -f ~/.ssh/agent.env ] ; then
     . ~/.ssh/agent.env > /dev/null
@@ -81,3 +85,5 @@ fi
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+

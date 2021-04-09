@@ -53,8 +53,8 @@ font-2 = Font Awesome 5 Free:style=Regular:pixelsize=8;0
 font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8;0
 font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=8;0
 
-modules-left = menu0 i3 pomo
-modules-center = publicip date
+modules-left = menu0 i3
+modules-center = date
 modules-right = network-ethernet network-wifi cpu temperature memory volume battery
 
 fixed-center = true
@@ -187,22 +187,6 @@ format-padding = 1
 ##############################
 ##############################
 
-[module/publicip]
-type = custom/script
-exec = ~/workspace/scripts/publicip
-interval = 60
-
-##############################
-##############################
-
-[module/pomo]
-type = custom/script
-exec = ~/bin/pomo
-interval = 1
-
-##############################
-##############################
-
 [module/mpd]
 type = internal/mpd
 
@@ -263,14 +247,11 @@ animation-charging-framerate = 750
 ##############################
 
 [module/volume]
-type = internal/pulseaudio
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
-use-ui-max = true
+type = internal/volume
+master-mixer = Master
 format-volume = <label-volume>
 label-volume =  %percentage%
-label-muted =  muted
-label-muted-foreground = #666
-interval = 5
+format-volume-margin = 1
 
 ##############################
 ##############################
@@ -324,14 +305,14 @@ label-separator = |
 
 [module/network-wifi]
 type = internal/network
-interface = wlp0s20u3
+interface = wlan0
 label-connected = %upspeed:8% %downspeed:8% %essid% %local_ip%
 label-connected-maxlen = 200
 label-disconnected =
 
 [module/network-ethernet]
 type = internal/network
-interface = enp0s25
+interface = enp0s20u1
 label-connected = %downspeed:8% LAN
 label-connected-maxlen = 15
 label-disconnected =
