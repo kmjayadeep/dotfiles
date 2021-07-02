@@ -29,8 +29,17 @@ require('packer').startup(
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
+    -- Snippets
+    -- use 'SirVer/ultisnips'
+    -- use 'honza/vim-snippets'
+
+    -- Status line
+    use 'vim-airline/vim-airline'
+
+
+
     -- JS
-    -- use 'prettier/vim-prettier'
+    use { 'prettier/vim-prettier', run = 'yarn install' }
 
     -- Common
     use {'wbthomason/packer.nvim', opt = true}

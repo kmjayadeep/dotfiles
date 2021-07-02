@@ -1,6 +1,7 @@
 # General
 alias zshrc="nvim ~/.zshrc;source ~/.zshrc"
-alias vconf="nvim ~/.config/nvim/init.vim"
+alias aliasconf="nvim ~/.bash_aliases;source ~/.bash_aliases"
+alias vconf="cd ~/.config/nvim;nvim ~/.config/nvim/init.vim"
 alias i3conf="nvim ~/.config/i3/config"
 alias ali="nvim ~/.bash_aliases; source ~/.bash_aliases"
 alias please=sudo

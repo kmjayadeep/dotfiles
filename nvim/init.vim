@@ -32,3 +32,6 @@ nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent><leader>rn :Lspsaga rename<CR>
+
+nmap ,cs :let @+=expand("%")<CR>
+nmap ,cl :let @+=expand("%:p")<CR>

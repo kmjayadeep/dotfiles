@@ -52,6 +52,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
+  ["moonlight.nvim"] = {
+    loaded = true,
+    path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/moonlight.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/home/jayadeep/.local/share/nvim/site/pack/packer/start/nerdcommenter"
