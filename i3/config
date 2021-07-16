@@ -220,6 +220,7 @@ exec --no-startup-id nitrogen --restore
 
 assign [class="^Steam$"] → $ws7
 assign [class="^dota2"] → $ws8
+assign [class="^discord"] → $ws9
 
 for_window [class="^.*"] border pixel 1
 
