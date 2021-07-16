@@ -15,3 +15,5 @@ require("plugins.lspsaga")
 
 -- LSP
 require("lsp.servers")
+
+require('hardline').setup {}

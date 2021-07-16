@@ -34,8 +34,7 @@ require('packer').startup(
     -- use 'honza/vim-snippets'
 
     -- Status line
-    use 'vim-airline/vim-airline'
-
+    use {'ojroques/nvim-hardline'}
 
 
     -- JS

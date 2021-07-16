@@ -9,7 +9,7 @@ vim.o.hidden = true
 vim.o.incsearch = true
 vim.o.scrolloff = 7
 vim.o.mouse = 'a'
-vim.o.cmdheight = 2
+-- vim.o.cmdheight = 2
 vim.o.updatetime = 100
 vim.o.undodir = os.getenv("HOME") .. '/.cache/vim/undo';
 
