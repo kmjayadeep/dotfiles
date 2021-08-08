@@ -18,9 +18,6 @@ alias record="ffmpeg -f x11grab  -s 1920x1080 -i :0.0 -r 25 -vcodec libx264  out
 # taskwarrior
 alias tt="taskwarrior-tui"
 
-# Git
-alias push="git push"
-
 # Pacman
 alias pS="sudo pacman -S"
 alias pSu="sudo pacman -Syu"

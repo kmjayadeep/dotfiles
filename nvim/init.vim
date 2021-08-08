@@ -35,3 +35,5 @@ nnoremap <silent><leader>rn :Lspsaga rename<CR>
 
 nmap ,cs :let @+=expand("%")<CR>
 nmap ,cl :let @+=expand("%:p")<CR>
+
+autocmd FileType markdown set tw=72
