@@ -241,12 +241,9 @@ set $statuscmd i3status
 #   i3status uses SIGUSR1 by default
 set $statussig SIGUSR1
 
-# Amount to increase/decrease volume as a percentage
-# set $volumestep 5
-
-# bindsym XF86AudioRaiseVolume exec $volumepath -npl -i $volumestep -t $statuscmd -u $statussig
-# bindsym XF86AudioLowerVolume exec $volumepath -npl -d $volumestep -t $statuscmd -u $statussig
-# bindsym XF86AudioMute        exec $volumepath -mnl -t $statuscmd -u $statussig
+# Volume bindings
+bindsym Mod4+comma exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Mod4+period exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # screenshot
 bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots' && notify-send 'Screenshot saved'
