@@ -275,12 +275,27 @@ ramp-coreload-7 = █
 ##############################
 ##############################
 [module/temperature]
-type = custom/script
-exec = ~/scripts/status_temperature.sh
-label =  %output%°
+type = internal/temperature
+thermal-zone = 2
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #12bfe6
+format-warn = <ramp> <label-warn>
+format-warn-underline = #ed151d
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
 
 ##############################
 ##############################
+
 [module/pomo]
 type = custom/script
 exec = ~/workspace/scripts/pomo

@@ -246,7 +246,7 @@ bindsym Mod4+comma exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym Mod4+period exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # screenshot
-bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots' && notify-send 'Screenshot saved'
+bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots' # && notify-send 'Screenshot saved'
 bindsym --release Shift+Print exec scrot -s -d 2 -e 'mv $f ~/Pictures/Screenshots' && notify-send 'Screenshot saved'
 
 

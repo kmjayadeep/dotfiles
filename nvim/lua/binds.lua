@@ -20,8 +20,8 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)
 
 -- Quit and save
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
-vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', opts)
 
 
 -- navigation
