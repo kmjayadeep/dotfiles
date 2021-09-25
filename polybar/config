@@ -275,37 +275,31 @@ ramp-coreload-7 = █
 ##############################
 ##############################
 [module/temperature]
-type = custom/script
-exec = ~/scripts/status_temperature.sh
-label =  %output%°
+type = internal/temperature
 
-##############################
-##############################
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
 
-[module/menu0]
-type = custom/menu
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
 
-format = <label-toggle> <menu>
-format-padding = 2
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
 
-menu-0-0 = System
-menu-0-0-exec = menu-open-1
-
-menu-1-0 = Standby
-menu-1-0-exec = systemctl suspend
-menu-1-1 = Power off
-menu-1-1-exec = poweroff
-
-label-open =  
-label-close = 
-label-separator = |
-
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
 ##############################
 ##############################
 
 [module/network-wifi]
 type = internal/network
-interface = wlp0s20u3
+interface = wlp3s0
 label-connected = %upspeed:8% %downspeed:8% %essid% %local_ip%
 label-connected-maxlen = 200
 label-disconnected =
