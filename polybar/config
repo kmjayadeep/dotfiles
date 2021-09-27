@@ -54,7 +54,7 @@ font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8;0
 font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=8;0
 
 modules-left = menu0 i3
-modules-center = date
+modules-center = pomo date
 modules-right = network-ethernet network-wifi cpu temperature memory volume battery
 
 fixed-center = true
@@ -255,6 +255,14 @@ format-volume-margin = 1
 
 ##############################
 ##############################
+
+[module/pomo]
+type = custom/script
+exec = ~/workspace/scripts/pomo
+
+##############################
+##############################
+
 
 [module/cpu]
 type = internal/cpu
