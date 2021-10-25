@@ -28,7 +28,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --follow --no-ignore-vcs --hidden -g "!{n
 
 " LSP rename
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+nnoremap <silent><leader>aa :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent><leader>rn :Lspsaga rename<CR>

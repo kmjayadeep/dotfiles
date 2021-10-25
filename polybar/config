@@ -256,14 +256,6 @@ format-volume-margin = 1
 ##############################
 ##############################
 
-[module/pomo]
-type = custom/script
-exec = ~/workspace/scripts/pomo
-
-##############################
-##############################
-
-
 [module/cpu]
 type = internal/cpu
 interval = 1.5
@@ -284,30 +276,57 @@ ramp-coreload-7 = █
 ##############################
 [module/temperature]
 type = internal/temperature
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
-
-; Thermal zone to use
-; To list all the zone types, run 
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 0
-
-; Base temperature for where to start the ramp (in degrees celsius)
-; Default: 0
-base-temperature = 20
-
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
+thermal-zone = 2
 warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #12bfe6
+format-warn = <ramp> <label-warn>
+format-warn-underline = #ed151d
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+##############################
+##############################
+
+[module/pomo]
+type = custom/script
+exec = ~/workspace/scripts/pomo
+
+##############################
+##############################
+
+[module/menu0]
+type = custom/menu
+
+format = <label-toggle> <menu>
+format-padding = 2
+
+menu-0-0 = System
+menu-0-0-exec = menu-open-1
+
+menu-1-0 = Standby
+menu-1-0-exec = systemctl suspend
+menu-1-1 = Power off
+menu-1-1-exec = poweroff
+
+label-open =  
+label-close = 
+label-separator = |
+
 ##############################
 ##############################
 
 [module/network-wifi]
 type = internal/network
-interface = wlp3s0
+interface = wlan0
 label-connected = %upspeed:8% %downspeed:8% %essid% %local_ip%
 label-connected-maxlen = 200
 label-disconnected =

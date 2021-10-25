@@ -104,7 +104,7 @@ set $ws1 "1: Web"
 set $ws2 "2: Editor"
 set $ws3 "3: Term"
 set $ws4 "4: Remote"
-set $ws5 "5: Misc"
+set $ws5 "5: Todo"
 set $ws6 "6: Social"
 set $ws7 "7: Steam"
 set $ws8 "8: Game"
@@ -220,7 +220,7 @@ exec --no-startup-id nitrogen --restore
 
 assign [class="^Steam$"] → $ws7
 assign [class="^dota2"] → $ws8
-assign [class="^discord"] → $ws9
+assign [class="^discord"] → $ws6
 
 for_window [class="^.*"] border pixel 1
 
