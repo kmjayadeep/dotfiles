@@ -1,0 +1,8 @@
+[user]
+	email = kmjayadeep@gmail.com
+	name = Jayadeep KM
+  signingkey = 723DB183DFF3E7F1
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
+[commit]
+	gpgsign = true
