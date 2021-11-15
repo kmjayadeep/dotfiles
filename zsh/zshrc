@@ -42,7 +42,7 @@ export GOPATH=~/go
 alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
 # Variables
-export PASSWORD_STORE_DIR=~/workspace/security/password-store
+export PASSWORD_STORE_DIR=~/private/password-store
 
 
 read -r last_backup_date  < ~/workspace/backups/last_backup_date

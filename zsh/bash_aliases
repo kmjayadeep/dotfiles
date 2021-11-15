@@ -1,4 +1,5 @@
 # General
+alias kz="kustomize"
 alias zshrc="nvim ~/.zshrc;source ~/.zshrc"
 alias aliasconf="nvim ~/.bash_aliases;source ~/.bash_aliases"
 alias vconf="cd ~/.config/nvim;nvim ~/.config/nvim/init.vim"

@@ -249,6 +249,10 @@ bindsym Mod4+period exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --release Print exec scrot -e 'mv $f ~/Pictures/Screenshots' # && notify-send 'Screenshot saved'
 bindsym --release Shift+Print exec scrot -s -d 2 -e 'mv $f ~/Pictures/Screenshots' && notify-send 'Screenshot saved'
 
+# dunst bindings
+bindsym Control+space exec dunstctl close
+bindsym Control+Shift+space exec dunstctl close-all
+
 
 # Increase keyboard repetiton rate
 exec xset r rate 250 60
