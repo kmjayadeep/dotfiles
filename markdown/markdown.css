@@ -19,7 +19,7 @@ a:hover {
   text-decoration: underline;
 }
 
-p { margin: 0 0 20px; }
+p { margin: 10px 0 20px; }
 small { font-size: 85%; }
 strong { font-weight: bold; }
 em { font-style: italic; }
