@@ -4,5 +4,13 @@
   signingkey = 723DB183DFF3E7F1
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
+[diff "sopsdiffer"]
+	textconv = sops -d
 [commit]
-	gpgsign = true
+  gpgsign = true
+[gpg]
+  program = gpg2
+[includeIf "gitdir:~/workspace/*"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/workspace/work/avesha/"]
+  path = ~/.gitconfig-avesha
