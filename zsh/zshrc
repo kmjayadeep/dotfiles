@@ -39,6 +39,7 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH=~/.npm-global/bin:$PATH
 export GOPATH=~/go
 
+
 alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
 # Variables

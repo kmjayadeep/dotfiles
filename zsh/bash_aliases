@@ -47,6 +47,7 @@ do
   alias $res="kubectl get $res"
   alias d$res="kubectl describe $res"
   alias e$res="kubectl edit $res"
+  alias w$res="watch kubectl get $res"
 done
 
 # exec into pod
