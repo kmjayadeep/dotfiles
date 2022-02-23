@@ -10,10 +10,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-vim.cmd('packadd packer.nvim')
-
 require('packer').startup(
   function()
+    use {'wbthomason/packer.nvim'}
 
     -- Themes
     use 'rakr/vim-one'
@@ -52,7 +51,6 @@ require('packer').startup(
     use { 'prettier/vim-prettier', run = 'yarn install' }
 
     -- Common
-    use {'wbthomason/packer.nvim', opt = true}
     use 'junegunn/fzf.vim'
     use 'preservim/nerdcommenter'
     use 'jiangmiao/auto-pairs'
