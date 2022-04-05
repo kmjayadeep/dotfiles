@@ -16,6 +16,9 @@ alias weather='curl "wttr.in?0Fq"'
 alias moon="curl wttr.in/moon"
 alias record="ffmpeg -f x11grab  -s 1920x1080 -i :0.0 -r 25 -vcodec libx264  output.mkv"
 
+# go
+alias gk=ginkgo
+
 # taskwarrior
 alias tt="taskwarrior-tui"
 
@@ -42,7 +45,7 @@ alias ke="kubectl exec -ti"
 alias kaf="kubectl apply -f"
 
 # alias po for k get po, deploy for k get deploy etc
-for res in po deploy svc netsvc slicegw slice ing vs gw dr ds se si cm secret serviceexport serviceimport
+for res in po deploy svc netsvc slicegw slice ing vs gw dr ds se svcim svcex cm secret serviceexport serviceimport
 do
   alias $res="kubectl get $res"
   alias d$res="kubectl describe $res"

@@ -14,7 +14,7 @@ require('packer').startup(
     use 'morhetz/gruvbox'
 
     -- Git integration
-    use 'tpope/vim-fugitive'
+    -- use 'tpope/vim-fugitive'
     use 'airblade/vim-gitgutter'
 
     -- File manager
