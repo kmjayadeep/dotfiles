@@ -55,7 +55,7 @@ font-4 = Font Awesome 6 Brands:style=Regular:pixelsize=8;0
 
 modules-left = menu0 i3
 modules-center = pomo date
-modules-right = network-ethernet network-wifi cpu temperature memory volume battery
+modules-right = andromeda network-ethernet network-wifi cpu temperature memory volume battery
 
 fixed-center = true
 
@@ -299,6 +299,14 @@ ramp-foreground = ${colors.foreground-alt}
 [module/pomo]
 type = custom/script
 exec = ~/workspace/scripts/pomo
+
+##############################
+##############################
+
+[module/andromeda]
+type = custom/script
+exec = ~/workspace/scripts/andromeda_stats
+
 
 ##############################
 ##############################

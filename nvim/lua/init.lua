@@ -17,3 +17,4 @@ require("plugins.lspsaga")
 require("lsp.servers")
 
 require('hardline').setup {}
+require('nvim-tree').setup {}

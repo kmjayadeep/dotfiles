@@ -89,3 +89,7 @@ fi
 
 
 # source /usr/share/nvm/init-nvm.sh
+#
+
+# FLuxcd completion
+command -v flux >/dev/null && . <(flux completion zsh)
