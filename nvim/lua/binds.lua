@@ -51,6 +51,6 @@ vim.api.nvim_set_keymap('n', '<Leader>l', ':Buffers<CR>', opts)
 -- vim.api.nvim_set_keymap('n', '<Leader>do', '<Plug>(coc-codeaction)', mapOpts)
 
 -- NerdCommenter
-vim.api.nvim_set_keymap('n', '<C-_>', ":call NERDComment('Toggle', 'Toggle')<CR>", mapOpts)
-vim.api.nvim_set_keymap('i', '<C-_>', "<esc>:call NERDComment('Toggle', 'Toggle')<CR>", mapOpts)
-vim.api.nvim_set_keymap('v', '<C-_>', ":call NERDComment('Toggle', 'Toggle')<CR>gv", mapOpts)
+vim.api.nvim_set_keymap('n', '<C-_>', ":call nerdcommenter#Comment('Toggle', 'Toggle')<CR>", mapOpts)
+vim.api.nvim_set_keymap('i', '<C-_>', "<esc>:call nerdcommenter#Comment('Toggle', 'Toggle')<CR>", mapOpts)
+vim.api.nvim_set_keymap('v', '<C-_>', ":call nerdcommenter#Comment('Toggle', 'Toggle')<CR>gv", mapOpts)
