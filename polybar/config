@@ -1,62 +1,62 @@
-# Font awesome icons:
-# https://www.karmecholing.org/wp-content/plugins/Font-Awesome-WordPress-Plugin-master/assets/FontAwesomeIconsCheatsheet.pdf
-
 [colors]
-bg = #EE012940
-bg-alt = #ee2b2d42
-; bg-alt = #2b2d42
-fg = #ECEFF4
-fg-alt = #E5E9F0
+background       = #551D2324
+background-alt   = #394447
+background-dim   = #252e30
+background-bri   = #4f5f63
+foreground       = #586E75
+foreground-alt   = #3E3E3E
+foreground-green = #00F800
+foreground-dim   = #1a1a1a
+foreground-dark  = #000000
+foreground-bri   = #ffffff
+primary          = #859900
+secondary        = #586E75
+alert            = #268BD2
 
-blue = #81A1C1
-cyan = #88C0D0
-green = #A3BE8C
-orange = #D08770
-purple = #B48EAD
-red = #BF616A
-yellow = #EBCB8B
+### bright theme (uncomment and comment out to switch)
+fg    = ${colors.foreground-bri}
+fg-sp = ${colors.foreground-green}
+### dark theme
+#fg    = ${colors.foreground-dim}
+#fg-sp = ${colors.foreground}
 
-black = #000
-white = #FFF
-
-trans = #00000000
-semi-trans-black = #aa000000
-
-
-fg-sp= #88C0D0
+##############################
+##############################
 
 [bar/bottom]
 
 bottom = true
 width = 100%
-height = 35
+height = 18
 offset-x = 0
 offset-y = 0
-underline-size = 0
 
-background = ${colors.bg-alt}
-foreground = ${colors.fg-alt}
+underline-size = 1
 
-border-top-size = 0
+background = #000000
+foreground = ${colors.fg}
+
+border-top-size = 1
 border-top-color = #ffffff
-border-bottom-size = 0
+border-bottom-size = 1
 border-bottom-color = ${colors.background}
 
 spacing = 5
-padding-left = 5
-padding-right = 5
+padding-left = 0
+padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = DejaVu Sans:size=11;0
-font-1 = FontAwesome:size=11;0
+font-0 = FontAwesome:size=10;0
+font-1 = DejaVu Sans:size=10;0
 font-2 = Font Awesome 6 Free:style=Regular:pixelsize=10;0
 font-3 = Font Awesome 6 Free:style=Solid:pixelsize=10;0
 font-4 = Font Awesome 6 Brands:style=Regular:pixelsize=10;0
 
-modules-left = andromeda todo
-modules-center = current_context
+modules-left = andromeda
+modules-center = date
 modules-right = publicip
+
 
 fixed-center = true
 
@@ -67,19 +67,19 @@ fixed-center = true
 
 bottom = false
 width = 100%
-height = 30
+height = 18
 offset-x = 0
 offset-y = 0
 
 underline-size = 1
 
-background = ${colors.bg}
+background = ${colors.background}
 foreground = ${colors.fg}
 
-border-top-size = 0
-border-top-color = ${colors.bg}
+border-top-size = 5
+border-top-color = ${colors.background}
 border-bottom-size = 0
-border-bottom-color = ${colors.bg}
+border-bottom-color = ${colors.background}
 
 spacing = 0
 padding-left = 0
@@ -87,22 +87,21 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = DejaVu Sans:size=10;0
-font-1 = FontAwesome:size=11;0
-font-2 = Font Awesome 6 Free:style=Regular:pixelsize=11;0
-font-3 = Font Awesome 6 Free:style=Solid:pixelsize=11;0
-font-4 = Font Awesome 6 Brands:style=Regular:pixelsize=11;0
+font-0 = FontAwesome:size=10;0
+font-1 = DejaVu Sans:size=10;0
+font-2 = Font Awesome 6 Free:style=Regular:pixelsize=10;0
+font-3 = Font Awesome 6 Free:style=Solid:pixelsize=10;0
+font-4 = Font Awesome 6 Brands:style=Regular:pixelsize=10;0
 
 modules-left = menu0 i3
 modules-center = pomo date
-modules-right = network-ethernet network-wifi cpu temperature memory volume battery
+modules-right = andromeda publicip network-ethernet network-wifi cpu temperature memory volume battery
 
 fixed-center = true
 
 tray-position = right
-tray-padding = 10
+tray-padding = 2
 tray-detached = false
-tray-background = ${colors.bg-alt}
 
 
 ##############################
@@ -133,7 +132,8 @@ label-visible-underline = #555555
 label-visible-padding = 1
 
 label-urgent = %name%
-label-urgent-foreground = ${colors.red}
+label-urgent-foreground = ${colors.background-bri}
+label-urgent-background = ${colors.foreground-dim}
 label-urgent-padding = 1
 
 ##############################
@@ -266,6 +266,7 @@ ramp-foreground = ${colors.foreground-alt}
 [module/pomo]
 type = custom/script
 exec = ~/workspace/scripts/pomo
+label-background = ${color.primary}
 
 ##############################
 ##############################
@@ -273,22 +274,6 @@ exec = ~/workspace/scripts/pomo
 [module/andromeda]
 type = custom/script
 exec = ~/workspace/scripts/andromeda_stats
-
-
-##############################
-##############################
-
-[module/todo]
-type = custom/script
-exec = ~/workspace/scripts/xt count
-
-
-##############################
-##############################
-
-[module/current_context]
-type = custom/script
-exec = ~/workspace/scripts/current_context
 
 
 ##############################
