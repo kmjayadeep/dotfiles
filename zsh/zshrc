@@ -37,6 +37,7 @@ export PATH="$PATH:$HOME/workspace/private_scripts"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH=~/.npm-global/bin:$PATH
+export PATH="/home/jayadeep/.local/share/solana/install/active_release/bin:$PATH"
 export GOPATH=~/go
 
 
@@ -44,6 +45,7 @@ alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
 # Variables
 export PASSWORD_STORE_DIR=~/private/password-store
+export BROWSER=/usr/lib/brave-bin/brave-browser
 
 
 read -r last_backup_date  < ~/workspace/backups/last_backup_date
@@ -93,3 +95,8 @@ fi
 
 # FLuxcd completion
 command -v flux >/dev/null && . <(flux completion zsh)
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+
+export KO_DOCKER_REPO='localhost:5000/mypipelineimages'
