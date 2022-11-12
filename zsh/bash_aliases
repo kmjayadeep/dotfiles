@@ -64,3 +64,6 @@ function ksh(){
     kubectl exec -it $pod -c $container -- sh
   fi
 }
+
+# taskwarrior
+alias in="task folder:in"
