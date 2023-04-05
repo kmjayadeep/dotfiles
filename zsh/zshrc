@@ -18,9 +18,10 @@ autoload -U promptinit; promptinit
 prompt pure
 
 
-export EDITOR='nvim'
+export EDITOR='/home/jayadeep/.local/bin/lvim'
+export BROWSER='brave'
 
-PATH="$HOME/.node/bin:$PATH"
+PATH="$HOME/.node/bin:$PATH":~/.local/bin
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 # export PATH="$PATH:/opt/lampp/bin:/opt/lampp"
 #source virtualenvwrapper.sh
@@ -100,3 +101,6 @@ command -v flux >/dev/null && . <(flux completion zsh)
 export PATH=$PATH:$HOME/.pulumi/bin
 
 export KO_DOCKER_REPO='localhost:5000/mypipelineimages'
+
+export PSUITE_NOTES_DIR=/home/jayadeep/private/psuite/notes
+export PSUITE_MINDMAP_DIR=/home/jayadeep/private/psuite/mindmap
