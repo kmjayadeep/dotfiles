@@ -19,7 +19,6 @@ prompt pure
 
 
 export EDITOR='/home/jayadeep/.local/bin/lvim'
-export BROWSER='brave'
 
 PATH="$HOME/.node/bin:$PATH":~/.local/bin
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
@@ -46,7 +45,7 @@ alias fixroot="XDG_RUNTIME_DIR=/run/user/$UID systemctl --user reset-failed"
 
 # Variables
 export PASSWORD_STORE_DIR=~/private/password-store
-export BROWSER=/usr/lib/brave-bin/brave-browser
+export BROWSER=/usr/bin/brave
 
 
 read -r last_backup_date  < ~/workspace/backups/last_backup_date

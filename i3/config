@@ -221,7 +221,7 @@ exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore 
 #exec --no-startup-id /home/jayadeep/.config/polybar/i3wmthemer_bar_launch.sh
 
-assign [class="^Steam$"] → $ws7
+assign [class="^steam.*"] → $ws7
 assign [class="^dota2"] → $ws8
 assign [class="^discord"] → $ws6
 

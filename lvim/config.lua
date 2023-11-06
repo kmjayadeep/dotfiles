@@ -27,6 +27,7 @@ lvim.keys.normal_mode["<C-p>"] = ':Telescope find_files<CR>'
 lvim.keys.normal_mode["<C-n>"] = ":NvimTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>e"] = false
 lvim.keys.normal_mode["<leader><leader>"] = "<C-^>"
+lvim.keys.normal_mode["<leader>ii"] = ":read !notes img %:r<CR>"
 
 --
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
@@ -174,6 +175,11 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.plugins = {
     {
       "tpope/vim-surround",
+    },
+    {
+     'iamcco/markdown-preview.nvim',
+      -- Not working, run manually
+      build = 'cd app && yarn install'
     },
 }
 
